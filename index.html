@@ -66,15 +66,15 @@
 
         .floating-item {
             position: absolute;
-            opacity: 0.09;
+            opacity: 0.08;
             animation: floatUp linear infinite;
             user-select: none;
         }
 
         @keyframes floatUp {
             0% { transform: translateY(105vh) rotate(0deg); opacity: 0; }
-            15% { opacity: 0.09; }
-            85% { opacity: 0.09; }
+            15% { opacity: 0.08; }
+            85% { opacity: 0.08; }
             100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
         }
 
@@ -172,8 +172,8 @@
         }
 
         .pelmen-svg {
-            width: 150px;
-            height: 130px;
+            width: 148px;
+            height: 128px;
             filter: drop-shadow(0 12px 22px rgba(0, 0, 0, 0.5));
             animation: gentleBob 3.5s ease-in-out infinite;
         }
@@ -226,7 +226,7 @@
 
         .days-number {
             font-family: 'JetBrains Mono', monospace;
-            font-size: clamp(56px, 16vw, 74px);
+            font-size: clamp(54px, 15vw, 72px);
             font-weight: 800;
             line-height: 1;
             color: var(--gold-bright);
@@ -272,11 +272,12 @@
             text-transform: uppercase;
         }
 
+        /* Прогресс + Календарь */
         .progress-header {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .progress-title {
@@ -294,7 +295,7 @@
         }
 
         .progress-track {
-            height: 12px;
+            height: 11px;
             background: rgba(0, 0, 0, 0.45);
             border-radius: 999px;
             overflow: hidden;
@@ -312,7 +313,7 @@
         }
 
         .love-status-msg {
-            margin-top: 12px;
+            margin-top: 10px;
             font-size: 13px;
             line-height: 1.45;
             color: var(--text-main);
@@ -322,6 +323,190 @@
             border-left: 3px solid var(--rose);
         }
 
+        .section-title {
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--gold-bright);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-title-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Календарь */
+        .cal-weekdays {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 6px;
+            text-align: center;
+            font-size: 10.5px;
+            font-weight: 700;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+        }
+
+        .cal-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 6px;
+        }
+
+        .cal-day {
+            aspect-ratio: 1 / 1;
+            border-radius: 12px;
+            background: rgba(0, 0, 0, 0.24);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-main);
+            user-select: none;
+        }
+
+        .cal-day.pre {
+            opacity: 0.28;
+        }
+
+        .cal-day.passed {
+            background: rgba(255, 123, 143, 0.14);
+            border-color: rgba(255, 123, 143, 0.25);
+            color: rgba(255, 179, 190, 0.7);
+        }
+
+        .cal-day.passed::after {
+            content: '♥';
+            position: absolute;
+            font-size: 8px;
+            bottom: 3px;
+            right: 4px;
+            color: var(--rose);
+        }
+
+        .cal-day.today {
+            background: rgba(255, 123, 143, 0.24);
+            border: 2px solid var(--rose);
+            color: #ffffff;
+            box-shadow: 0 0 12px rgba(255, 123, 143, 0.35);
+        }
+
+        .cal-day.target {
+            background: linear-gradient(135deg, rgba(246, 196, 114, 0.32), rgba(255, 123, 143, 0.32));
+            border: 2px solid var(--gold);
+            color: var(--gold-bright);
+            box-shadow: 0 0 14px rgba(246, 196, 114, 0.35);
+        }
+
+        .cal-month-tag {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 8px;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--gold);
+            line-height: 1;
+            margin-top: 1px;
+        }
+
+        .cal-target-icon {
+            font-size: 10px;
+            line-height: 1;
+            margin-top: 1px;
+        }
+
+        /* Мини-игра */
+        .game-stats {
+            display: flex;
+            gap: 12px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-muted);
+        }
+
+        .game-stats span {
+            color: var(--rose-soft);
+        }
+
+        .game-wrap {
+            position: relative;
+            border-radius: 18px;
+            overflow: hidden;
+            background: radial-gradient(circle at 50% 20%, #261b1d 0%, #140e0f 100%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        #game-canvas {
+            display: block;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 360 / 280;
+            touch-action: none;
+            cursor: ew-resize;
+        }
+
+        .game-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(20, 14, 15, 0.82);
+            backdrop-filter: blur(4px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 16px;
+            gap: 10px;
+        }
+
+        .game-overlay.hidden {
+            display: none;
+        }
+
+        .game-overlay-title {
+            font-size: 17px;
+            font-weight: 900;
+            color: var(--gold-bright);
+        }
+
+        .game-overlay-sub {
+            font-size: 12.5px;
+            color: var(--text-muted);
+            line-height: 1.4;
+            max-width: 260px;
+        }
+
+        .game-btn {
+            background: linear-gradient(135deg, var(--rose), #e85d75);
+            color: #ffffff;
+            border: none;
+            border-radius: 999px;
+            padding: 10px 22px;
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 800;
+            cursor: pointer;
+            box-shadow: 0 6px 18px rgba(255, 123, 143, 0.35);
+            transition: transform 0.12s;
+        }
+
+        .game-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Записка */
         .love-note {
             background: linear-gradient(145deg, rgba(255, 123, 143, 0.14), rgba(36, 26, 28, 0.85));
             border: 1px solid rgba(255, 123, 143, 0.28);
@@ -341,18 +526,7 @@
             color: var(--rose-soft);
         }
 
-        .section-title {
-            font-size: 13px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            color: var(--gold-bright);
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
+        /* Чеклист */
         .checklist {
             display: flex;
             flex-direction: column;
@@ -470,46 +644,37 @@
                         </linearGradient>
                     </defs>
 
-                    <!-- Пар и сердечко -->
                     <path class="steam-line" d="M52 26 Q47 16 53 8" stroke="#ffe1a8" stroke-width="3" fill="none" stroke-linecap="round"/>
                     <path class="steam-line" d="M108 26 Q103 16 109 8" stroke="#ffe1a8" stroke-width="3" fill="none" stroke-linecap="round"/>
                     <path class="steam-line" d="M80 17 C75 9, 66 11, 66 17 C66 23, 80 30, 80 30 C80 30, 94 23, 94 17 C94 11, 85 9, 80 17 Z" fill="#ff7b8f"/>
 
-                    <!-- Плоский край подушечки -->
                     <path d="M42 40 Q80 35 118 40 Q130 42 132 54 Q137 84 132 114 Q130 126 118 128 Q80 133 42 128 Q30 126 28 114 Q23 84 28 54 Q30 42 42 40 Z"
                           fill="url(#rimDough)" stroke="#b87b28" stroke-width="3"/>
 
-                    <!-- Рифление по краю подушечки -->
                     <g stroke="#a86d20" stroke-width="2.2" stroke-linecap="round" opacity="0.65">
-                        <!-- верх -->
                         <line x1="50" y1="41" x2="51" y2="48"/>
                         <line x1="65" y1="39" x2="65" y2="46"/>
                         <line x1="80" y1="38" x2="80" y2="46"/>
                         <line x1="95" y1="39" x2="95" y2="46"/>
                         <line x1="110" y1="41" x2="109" y2="48"/>
-                        <!-- низ -->
                         <line x1="50" y1="120" x2="51" y2="127"/>
                         <line x1="65" y1="122" x2="65" y2="129"/>
                         <line x1="80" y1="122" x2="80" y2="130"/>
                         <line x1="95" y1="122" x2="95" y2="129"/>
                         <line x1="110" y1="120" x2="109" y2="127"/>
-                        <!-- лево -->
                         <line x1="29" y1="60" x2="37" y2="61"/>
                         <line x1="27" y1="76" x2="35" y2="76"/>
                         <line x1="27" y1="92" x2="35" y2="92"/>
                         <line x1="29" y1="108" x2="37" y2="107"/>
-                        <!-- право -->
                         <line x1="123" y1="61" x2="131" y2="60"/>
                         <line x1="125" y1="76" x2="133" y2="76"/>
                         <line x1="125" y1="92" x2="133" y2="92"/>
                         <line x1="123" y1="107" x2="131" y2="108"/>
                     </g>
 
-                    <!-- Пухлая серединка подушечки -->
                     <path d="M47 53 Q80 48 113 53 Q119 84 113 115 Q80 120 47 115 Q41 84 47 53 Z"
                           fill="url(#pillowDough)" stroke="#c78832" stroke-width="2.2"/>
 
-                    <!-- Мордочка -->
                     <circle cx="68" cy="81" r="4" fill="#4a3118"/>
                     <circle cx="92" cy="81" r="4" fill="#4a3118"/>
                     <circle cx="69.5" cy="79.5" r="1.3" fill="#ffffff"/>
@@ -547,7 +712,7 @@
             </div>
         </div>
 
-        <!-- Прогресс ожидания -->
+        <!-- Прогресс -->
         <div class="card">
             <div class="progress-header">
                 <span class="progress-title">Путь к встрече</span>
@@ -561,10 +726,43 @@
             </div>
         </div>
 
+        <!-- Календарь -->
+        <div class="card">
+            <div class="section-title">
+                <span class="section-title-left"><span>📅</span> Календарь до встречи</span>
+                <span style="font-size: 11px; color: var(--text-muted); font-weight: 700;">ноя – дек</span>
+            </div>
+            <div class="cal-weekdays">
+                <div>Пн</div><div>Вт</div><div>Ср</div><div>Чт</div><div>Пт</div><div>Сб</div><div>Вс</div>
+            </div>
+            <div class="cal-grid" id="cal-grid"></div>
+        </div>
+
+        <!-- Мини-игра -->
+        <div class="card">
+            <div class="section-title">
+                <span class="section-title-left"><span>🍲</span> Поймай в бульон</span>
+                <div class="game-stats">
+                    <div>Счёт: <span id="game-score">0</span></div>
+                    <div>Рекорд: <span id="game-best">0</span></div>
+                </div>
+            </div>
+            <div class="game-wrap">
+                <canvas id="game-canvas"></canvas>
+                <div class="game-overlay" id="game-overlay">
+                    <div class="game-overlay-title" id="game-over-title">Пельмешки в бульон!</div>
+                    <div class="game-overlay-sub" id="game-over-sub">
+                        Двигай кастрюльку пальцем, лови подушечки и сердечки.<br>Масло не лови — оно лишнее 😉
+                    </div>
+                    <button class="game-btn" id="game-start-btn">Играть 🎮</button>
+                </div>
+            </div>
+        </div>
+
         <!-- Признание для Леры -->
         <div class="card love-note">
             <div class="section-title">
-                <span>💌</span> Для тебя ❤️
+                <span class="section-title-left"><span>💌</span> Для тебя ❤️</span>
             </div>
             <div class="love-note-text">
                 Лера, я очень сильно тебя люблю. Жду 13 декабря — не только ради самых вкусных пельменей, а чтобы просто крепко обнять тебя и не отпускать.
@@ -577,7 +775,7 @@
         <!-- План на 13 декабря -->
         <div class="card">
             <div class="section-title">
-                <span>✨</span> План на 13 декабря
+                <span class="section-title-left"><span>✨</span> План на 13 декабря</span>
             </div>
             <div class="checklist" id="checklist"></div>
         </div>
@@ -589,19 +787,63 @@
 
     <script>
         // === НАСТРОЙКИ ДАТ ===
-        // 10 = ноябрь, 11 = декабрь.
-        // Если Лера приедет в конкретное время (например, 15:30), замени последние 0, 0, 0 на 15, 30, 0
         const START_DATE = new Date(2026, 10, 20, 0, 0, 0).getTime();
         const TARGET_DATE = new Date(2026, 11, 13, 0, 0, 0).getTime();
 
         let confettiStarted = false;
+        let lastCalDayKey = '';
 
         function declOfNum(number, titles) {
             const cases = [2, 0, 1, 1, 1, 2];
             return titles[(number % 100 > 4 && number % 100 < 20) ? 2 : cases[(number % 10 < 5) ? number % 10 : 5]];
         }
 
+        // === КАЛЕНДАРЬ (16 ноября – 13 декабря 2026, ровно 4 недели) ===
+        function renderCalendar() {
+            const now = new Date();
+            const todayKey = `${now.getFullYear()}-${now.getMonth()}-${now.getDate()}`;
+            if (todayKey === lastCalDayKey) return;
+            lastCalDayKey = todayKey;
+
+            const todayMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
+            const startMidnight = new Date(2026, 10, 20).getTime();
+            const targetMidnight = new Date(2026, 11, 13).getTime();
+
+            const grid = document.getElementById('cal-grid');
+            grid.innerHTML = '';
+
+            for (let i = 0; i < 28; i++) {
+                const cellDate = new Date(2026, 10, 16 + i);
+                const cellTime = cellDate.getTime();
+                const dayNum = cellDate.getDate();
+                const monthIdx = cellDate.getMonth();
+
+                const el = document.createElement('div');
+                el.className = 'cal-day';
+
+                if (cellTime === targetMidnight) {
+                    el.classList.add('target');
+                    el.innerHTML = `<span>${dayNum}</span><span class="cal-target-icon">🥟</span>`;
+                } else if (cellTime === todayMidnight) {
+                    el.classList.add('today');
+                    el.innerHTML = `<span>${dayNum}</span>${dayNum === 1 ? '<span class="cal-month-tag">дек</span>' : ''}`;
+                } else if (cellTime < startMidnight) {
+                    el.classList.add('pre');
+                    el.innerHTML = `<span>${dayNum}</span>`;
+                } else if (cellTime < todayMidnight) {
+                    el.classList.add('passed');
+                    el.innerHTML = `<span>${dayNum}</span>${dayNum === 1 ? '<span class="cal-month-tag">дек</span>' : ''}`;
+                } else {
+                    el.innerHTML = `<span>${dayNum}</span>${(monthIdx === 11 && dayNum === 1) ? '<span class="cal-month-tag">дек</span>' : ''}`;
+                }
+
+                grid.appendChild(el);
+            }
+        }
+
         function updateTimer() {
+            renderCalendar();
+
             const now = Date.now();
             let diff = TARGET_DATE - now;
 
@@ -740,6 +982,299 @@
             document.body.appendChild(pop);
             setTimeout(() => pop.remove(), 950);
         });
+
+        // === МИНИ-ИГРА: ПОЙМАЙ В БУЛЬОН ===
+        (function initGame() {
+            const canvas = document.getElementById('game-canvas');
+            const ctx = canvas.getContext('2d');
+            const overlay = document.getElementById('game-overlay');
+            const startBtn = document.getElementById('game-start-btn');
+            const scoreEl = document.getElementById('game-score');
+            const bestEl = document.getElementById('game-best');
+            const overTitle = document.getElementById('game-over-title');
+            const overSub = document.getElementById('game-over-sub');
+
+            const W = 360;
+            const H = 280;
+            const dpr = Math.min(window.devicePixelRatio || 1, 2);
+            canvas.width = W * dpr;
+            canvas.height = H * dpr;
+            ctx.scale(dpr, dpr);
+
+            let bestScore = 0;
+            try { bestScore = parseInt(localStorage.getItem('danya_lera_game_best') || '0', 10); } catch(e) {}
+            bestEl.textContent = bestScore;
+
+            let running = false;
+            let score = 0;
+            let lives = 3;
+            let potX = W / 2;
+            const potW = 76;
+            const potH = 30;
+            const potY = H - 38;
+            let items = [];
+            let popups = [];
+            let spawnTimer = 0;
+            let lastTime = 0;
+            let keys = { left: false, right: false };
+
+            function drawPillowPelmen(x, y, size, rot) {
+                ctx.save();
+                ctx.translate(x, y);
+                ctx.rotate(rot);
+                const r = size * 0.45;
+                // Внешний край подушечки
+                ctx.fillStyle = '#d99e44';
+                ctx.strokeStyle = '#a86d20';
+                ctx.lineWidth = 1.6;
+                ctx.beginPath();
+                ctx.roundRect(-size/2, -size/2, size, size, r * 0.65);
+                ctx.fill();
+                ctx.stroke();
+
+                // Пухлая серединка
+                const inner = size * 0.68;
+                ctx.fillStyle = '#fff1cf';
+                ctx.beginPath();
+                ctx.roundRect(-inner/2, -inner/2, inner, inner, r * 0.55);
+                ctx.fill();
+
+                // Глазки
+                ctx.fillStyle = '#4a3118';
+                ctx.beginPath();
+                ctx.arc(-size*0.13, -size*0.03, 1.5, 0, Math.PI*2);
+                ctx.arc(size*0.13, -size*0.03, 1.5, 0, Math.PI*2);
+                ctx.fill();
+                ctx.restore();
+            }
+
+            function drawPot() {
+                ctx.save();
+                ctx.translate(potX, potY);
+
+                // Ручки кастрюли
+                ctx.strokeStyle = '#a8998a';
+                ctx.lineWidth = 3;
+                ctx.beginPath();
+                ctx.arc(-potW/2 - 2, 10, 6, Math.PI * 0.5, Math.PI * 1.5);
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.arc(potW/2 + 2, 10, 6, -Math.PI * 0.5, Math.PI * 0.5);
+                ctx.stroke();
+
+                // Корпус кастрюли
+                ctx.fillStyle = '#453538';
+                ctx.strokeStyle = '#735b60';
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                ctx.roundRect(-potW/2, 2, potW, potH, [4, 4, 14, 14]);
+                ctx.fill();
+                ctx.stroke();
+
+                // Бульон сверху
+                ctx.fillStyle = '#f6c472';
+                ctx.beginPath();
+                ctx.ellipse(0, 3, potW/2 - 2, 6, 0, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Перчинки в бульоне
+                ctx.fillStyle = '#4a3118';
+                ctx.fillRect(-14, 2, 2, 2);
+                ctx.fillRect(8, 3, 2, 2);
+                ctx.fillRect(-2, 4, 2, 2);
+
+                // Сердечко на кастрюле
+                ctx.fillStyle = '#ff7b8f';
+                ctx.font = '12px sans-serif';
+                ctx.textAlign = 'center';
+                ctx.fillText('❤️', 0, 22);
+
+                ctx.restore();
+            }
+
+            function addPopup(x, y, text, color) {
+                popups.push({ x, y, text, color, life: 1 });
+            }
+
+            function spawnItem() {
+                const rand = Math.random();
+                let type = 'pelmen';
+                if (rand > 0.88) type = 'heart';
+                else if (rand > 0.72) type = 'butter';
+
+                const speedBoost = Math.min(2.2, score * 0.035);
+                items.push({
+                    type,
+                    x: 24 + Math.random() * (W - 48),
+                    y: -20,
+                    size: type === 'pelmen' ? 24 : 22,
+                    vy: (1.7 + Math.random() * 0.9 + speedBoost),
+                    rot: Math.random() * Math.PI,
+                    vRot: (Math.random() - 0.5) * 0.06
+                });
+            }
+
+            function endGame() {
+                running = false;
+                if (score > bestScore) {
+                    bestScore = score;
+                    bestEl.textContent = bestScore;
+                    try { localStorage.setItem('danya_lera_game_best', bestScore); } catch(e) {}
+                }
+                overTitle.textContent = `Наварил ${score} ${declOfNum(score, ['пельмень', 'пельменя', 'пельменей'])}! 🍲`;
+                overSub.textContent = score >= 15
+                    ? 'Лера бы точно похвалила! ❤️'
+                    : 'Попробуй ещё — соберём побольше для Леры!';
+                startBtn.textContent = 'Ещё раз 🔄';
+                overlay.classList.remove('hidden');
+            }
+
+            function loop(ts) {
+                if (!running) return;
+                const dt = Math.min(32, ts - lastTime) / 16.67;
+                lastTime = ts;
+
+                if (keys.left) potX -= 5.5 * dt;
+                if (keys.right) potX += 5.5 * dt;
+                potX = Math.max(potW/2 + 6, Math.min(W - potW/2 - 6, potX));
+
+                spawnTimer -= dt;
+                if (spawnTimer <= 0) {
+                    spawnItem();
+                    spawnTimer = Math.max(24, 48 - score * 0.45);
+                }
+
+                ctx.clearRect(0, 0, W, H);
+
+                // Жизни
+                ctx.font = '14px sans-serif';
+                ctx.textAlign = 'left';
+                ctx.fillText('❤️'.repeat(lives) + '🖤'.repeat(3 - lives), 10, 22);
+
+                // Объекты
+                for (let i = items.length - 1; i >= 0; i--) {
+                    const it = items[i];
+                    it.y += it.vy * dt;
+                    it.rot += it.vRot * dt;
+
+                    if (it.type === 'pelmen') {
+                        drawPillowPelmen(it.x, it.y, it.size, it.rot);
+                    } else if (it.type === 'heart') {
+                        ctx.font = '20px sans-serif';
+                        ctx.textAlign = 'center';
+                        ctx.fillText('❤️', it.x, it.y + 7);
+                    } else {
+                        ctx.font = '20px sans-serif';
+                        ctx.textAlign = 'center';
+                        ctx.fillText('🧈', it.x, it.y + 7);
+                    }
+
+                    // Проверка попадания в кастрюлю
+                    const hitY = it.y >= potY - 6 && it.y <= potY + 18;
+                    const hitX = Math.abs(it.x - potX) <= potW / 2 + 8;
+
+                    if (hitY && hitX) {
+                        if (it.type === 'pelmen') {
+                            score += 1;
+                            scoreEl.textContent = score;
+                            addPopup(it.x, potY - 12, '+1 🥟', '#ffe5b8');
+                        } else if (it.type === 'heart') {
+                            score += 3;
+                            if (lives < 3) lives++;
+                            scoreEl.textContent = score;
+                            addPopup(it.x, potY - 12, '+3 ❤️', '#ff7b8f');
+                        } else {
+                            lives--;
+                            addPopup(it.x, potY - 12, 'Масло мимо!', '#f87171');
+                            if (lives <= 0) {
+                                items.splice(i, 1);
+                                endGame();
+                                return;
+                            }
+                        }
+                        items.splice(i, 1);
+                        continue;
+                    }
+
+                    // Улетел вниз
+                    if (it.y > H + 20) {
+                        if (it.type === 'pelmen') {
+                            lives--;
+                            addPopup(it.x, H - 15, 'Упал!', '#f87171');
+                            if (lives <= 0) {
+                                items.splice(i, 1);
+                                endGame();
+                                return;
+                            }
+                        }
+                        items.splice(i, 1);
+                    }
+                }
+
+                drawPot();
+
+                // Всплывашки в игре
+                for (let i = popups.length - 1; i >= 0; i--) {
+                    const p = popups[i];
+                    p.y -= 1.1 * dt;
+                    p.life -= 0.03 * dt;
+                    if (p.life <= 0) {
+                        popups.splice(i, 1);
+                        continue;
+                    }
+                    ctx.save();
+                    ctx.globalAlpha = p.life;
+                    ctx.fillStyle = p.color;
+                    ctx.font = 'bold 12px Montserrat, sans-serif';
+                    ctx.textAlign = 'center';
+                    ctx.fillText(p.text, p.x, p.y);
+                    ctx.restore();
+                }
+
+                requestAnimationFrame(loop);
+            }
+
+            function startGame() {
+                score = 0;
+                lives = 3;
+                items = [];
+                popups = [];
+                spawnTimer = 10;
+                scoreEl.textContent = '0';
+                overlay.classList.add('hidden');
+                running = true;
+                lastTime = performance.now();
+                requestAnimationFrame(loop);
+            }
+
+            startBtn.addEventListener('click', startGame);
+
+            function handlePointer(e) {
+                if (!running) return;
+                const rect = canvas.getBoundingClientRect();
+                const x = ((e.clientX - rect.left) / rect.width) * W;
+                potX = Math.max(potW/2 + 6, Math.min(W - potW/2 - 6, x));
+            }
+
+            canvas.addEventListener('pointerdown', handlePointer);
+            canvas.addEventListener('pointermove', (e) => {
+                if (e.buttons > 0 || e.pointerType === 'touch' || e.pointerType === 'mouse') {
+                    handlePointer(e);
+                }
+            });
+
+            window.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') keys.left = true;
+                if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') keys.right = true;
+            });
+            window.addEventListener('keyup', (e) => {
+                if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') keys.left = false;
+                if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') keys.right = false;
+            });
+
+            // Начальный кадр под оверлеем
+            drawPot();
+        })();
 
         // === ЧЕКЛИСТ ===
         const tasks = [
