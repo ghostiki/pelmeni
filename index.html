@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>До пельменей Леры</title>
+
+    <!-- Настройки чтобы открывалось как приложение на телефоне -->
+    <meta name="theme-color" content="#14110f">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Пельмени Леры">
+
+    <!-- Иконка пельмешка (SVG прямо внутри кода) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%231c1613'/%3E%3Cpath d='M18 62 C18 35, 82 35, 82 62 C82 76, 65 80, 50 80 C35 80, 18 76, 18 62 Z' fill='%23f5d08a' stroke='%23d49b4b' stroke-width='4'/%3E%3Cpath d='M22 52 Q30 42 40 48 Q50 38 60 48 Q70 42 78 52' fill='none' stroke='%23d49b4b' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%231c1613'/%3E%3Cpath d='M18 62 C18 35, 82 35, 82 62 C82 76, 65 80, 50 80 C35 80, 18 76, 18 62 Z' fill='%23f5d08a' stroke='%23d49b4b' stroke-width='4'/%3E%3Cpath d='M22 52 Q30 42 40 48 Q50 38 60 48 Q70 42 78 52' fill='none' stroke='%23d49b4b' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@600;800&family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-dark: #14110f;
+            --card-bg: rgba(32, 27, 24, 0.78);
+            --card-border: rgba(246, 196, 114, 0.16);
+            --gold: #f6c472;
+            --gold-bright: #ffe1a8;
+            --butter: #e89b3c;
+            --text-main: #f7f1e8;
+            --text-muted: #a8998a;
+            --green: #6ee7b7;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-dark);
+            background-image:
+                radial-gradient(circle at 15% 15%, rgba(232, 155, 60, 0.14) 0%, transparent 45%),
+                radial-gradient(circle at 85% 80%, rgba(246, 196, 114, 0.1) 0%, transparent 50%);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 16px 40px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Плавающий фон */
+        .bg-steam {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .floating-dumpling {
+            position: absolute;
+            font-size: 24px;
+            opacity: 0.08;
+            animation: floatUp linear infinite;
+            user-select: none;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(105vh) rotate(0deg); opacity: 0; }
+            15% { opacity: 0.08; }
+            85% { opacity: 0.08; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+
+        .container {
+            width: 100%;
+            max-width: 460px;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        /* Бейдж статуса */
+        .status-badge {
+            align-self: center;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(246, 196, 114, 0.1);
+            border: 1px solid rgba(246, 196, 114, 0.25);
+            padding: 7px 14px;
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--green);
+            box-shadow: 0 0 10px var(--green);
+            animation: pulse 1.6s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.8); }
+        }
+
+        /* Заголовок */
+        .header {
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: clamp(24px, 6.5vw, 32px);
+            font-weight: 900;
+            line-height: 1.15;
+            background: linear-gradient(135deg, #fff6e5 0%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 6px;
+        }
+
+        .header p {
+            color: var(--text-muted);
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        /* Интерактивный пельмень */
+        .pelmen-stage {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 4px 0;
+        }
+
+        .pelmen-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            padding: 10px;
+            transition: transform 0.12s cubic-bezier(0.34, 1.56, 0.64, 1);
+            user-select: none;
+        }
+
+        .pelmen-btn:active {
+            transform: scale(0.88) rotate(-3deg);
+        }
+
+        .pelmen-glow {
+            position: absolute;
+            width: 140px;
+            height: 90px;
+            background: radial-gradient(circle, rgba(246, 196, 114, 0.28) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            filter: blur(10px);
+        }
+
+        .pelmen-svg {
+            width: 148px;
+            height: 112px;
+            filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.5));
+            animation: gentleBob 3.5s ease-in-out infinite;
+        }
+
+        @keyframes gentleBob {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-6px); }
+        }
+
+        .steam-line {
+            animation: steamRise 2.4s ease-in-out infinite;
+            opacity: 0;
+        }
+        .steam-line:nth-child(2) { animation-delay: 0.8s; }
+        .steam-line:nth-child(3) { animation-delay: 1.5s; }
+
+        @keyframes steamRise {
+            0% { transform: translateY(6px); opacity: 0; }
+            40% { opacity: 0.7; }
+            100% { transform: translateY(-14px); opacity: 0; }
+        }
+
+        .tap-hint {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: -4px;
+        }
+
+        .tap-counter {
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        /* Карточки */
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 20px;
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+        }
+
+        /* Главный таймер */
+        .days-hero {
+            text-align: center;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+            margin-bottom: 16px;
+        }
+
+        .days-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: clamp(56px, 16vw, 76px);
+            font-weight: 800;
+            line-height: 1;
+            color: var(--gold-bright);
+            text-shadow: 0 0 30px rgba(246, 196, 114, 0.3);
+        }
+
+        .days-label {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gold);
+            margin-top: 6px;
+        }
+
+        .time-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            text-align: center;
+        }
+
+        .time-box {
+            background: rgba(0, 0, 0, 0.28);
+            border-radius: 16px;
+            padding: 12px 6px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .time-val {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 26px;
+            font-weight: 800;
+            color: var(--text-main);
+            font-variant-numeric: tabular-nums;
+        }
+
+        .time-unit {
+            font-size: 11px;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-top: 2px;
+            text-transform: uppercase;
+        }
+
+        /* ДМБ Прогресс-бар */
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 10px;
+        }
+
+        .progress-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .progress-percent {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            font-weight: 800;
+            color: var(--gold);
+            font-variant-numeric: tabular-nums;
+        }
+
+        .progress-track {
+            height: 14px;
+            background: rgba(0, 0, 0, 0.45);
+            border-radius: 999px;
+            overflow: hidden;
+            padding: 2px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            border-radius: 999px;
+            background: linear-gradient(90deg, var(--butter), var(--gold-bright));
+            box-shadow: 0 0 12px rgba(246, 196, 114, 0.5);
+            transition: width 0.3s ease;
+            position: relative;
+        }
+
+        .dmb-status-msg {
+            margin-top: 12px;
+            font-size: 13px;
+            line-height: 1.45;
+            color: var(--text-muted);
+            background: rgba(246, 196, 114, 0.06);
+            padding: 10px 12px;
+            border-radius: 12px;
+            border-left: 3px solid var(--gold);
+        }
+
+        /* Чеклист */
+        .section-title {
+            font-size: 14px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gold);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .checklist {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .check-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 12px;
+            background: rgba(0, 0, 0, 0.22);
+            border-radius: 14px;
+            cursor: pointer;
+            transition: background 0.2s, opacity 0.2s;
+            user-select: none;
+        }
+
+        .check-item:active {
+            transform: scale(0.98);
+        }
+
+        .check-box {
+            width: 22px;
+            height: 22px;
+            border-radius: 7px;
+            border: 2px solid var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.2s;
+            font-size: 13px;
+            color: #14110f;
+            font-weight: 900;
+        }
+
+        .check-item.done .check-box {
+            background: var(--gold);
+        }
+
+        .check-item.done .check-text {
+            text-decoration: line-through;
+            color: var(--text-muted);
+            opacity: 0.7;
+        }
+
+        .check-text {
+            font-size: 13.5px;
+            font-weight: 600;
+        }
+
+        /* Футер и тест праздника */
+        .footer {
+            text-align: center;
+            font-size: 11px;
+            color: rgba(168, 153, 138, 0.6);
+            margin-top: 6px;
+        }
+
+        .test-btn {
+            background: none;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(168, 153, 138, 0.7);
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 11px;
+            margin-top: 10px;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        /* Всплывающий текст при тапе */
+        .pop-text {
+            position: fixed;
+            font-weight: 800;
+            font-size: 15px;
+            color: var(--gold-bright);
+            pointer-events: none;
+            z-index: 100;
+            animation: popFloat 0.9s ease-out forwards;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+        }
+
+        @keyframes popFloat {
+            0% { transform: translate(-50%, 0) scale(0.8); opacity: 1; }
+            100% { transform: translate(-50%, -65px) scale(1.15); opacity: 0; }
+        }
+
+        /* Канвас для конфетти */
+        #confetti {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 99;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="confetti"></canvas>
+    <div class="bg-steam" id="bg-steam"></div>
+
+    <div class="container">
+        <div class="status-badge">
+            <span class="pulse-dot" id="status-dot"></span>
+            <span id="badge-text">ОПЕРАЦИЯ «ПЕЛЬМЕНИ ЛЕРЫ»</span>
+        </div>
+
+        <div class="header">
+            <h1 id="main-title">До пельменей Леры</h1>
+            <p id="sub-title">Дата ДМБ (День Мяса и Бульона): 13 декабря</p>
+        </div>
+
+        <!-- Кликер-пельмешек -->
+        <div class="pelmen-stage">
+            <button class="pelmen-btn" id="pelmen-btn" aria-label="Тыкнуть пельмень">
+                <div class="pelmen-glow"></div>
+                <svg class="pelmen-svg" viewBox="0 0 160 120" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Пар -->
+                    <path class="steam-line" d="M55 28 Q50 18 56 10" stroke="#ffe1a8" stroke-width="3" fill="none" stroke-linecap="round"/>
+                    <path class="steam-line" d="M80 24 Q86 14 79 5" stroke="#ffe1a8" stroke-width="3" fill="none" stroke-linecap="round"/>
+                    <path class="steam-line" d="M105 28 Q100 18 106 10" stroke="#ffe1a8" stroke-width="3" fill="none" stroke-linecap="round"/>
+                    <!-- Тело пельменя -->
+                    <defs>
+                        <linearGradient id="dough" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stop-color="#fff1cf"/>
+                            <stop offset="60%" stop-color="#f2c97d"/>
+                            <stop offset="100%" stop-color="#d49a45"/>
+                        </linearGradient>
+                    </defs>
+                    <path d="M20 75 C20 35, 140 35, 140 75 C140 97, 112 103, 80 103 C48 103, 20 97, 20 75 Z" fill="url(#dough)" stroke="#c78832" stroke-width="3"/>
+                    <!-- Защипы теста -->
+                    <path d="M26 62 Q38 45 50 56 Q62 40 74 53 Q86 40 98 53 Q110 40 122 56 Q130 50 134 62" fill="none" stroke="#c78832" stroke-width="3.2" stroke-linecap="round"/>
+                    <!-- Милая мордочка -->
+                    <circle cx="63" cy="76" r="4" fill="#4a3118"/>
+                    <circle cx="97" cy="76" r="4" fill="#4a3118"/>
+                    <circle cx="64.5" cy="74.5" r="1.3" fill="#ffffff"/>
+                    <circle cx="98.5" cy="74.5" r="1.3" fill="#ffffff"/>
+                    <ellipse cx="53" cy="82" rx="5" ry="3" fill="#f08080" opacity="0.55"/>
+                    <ellipse cx="107" cy="82" rx="5" ry="3" fill="#f08080" opacity="0.55"/>
+                    <path d="M74 81 Q80 87 86 81" fill="none" stroke="#4a3118" stroke-width="2.8" stroke-linecap="round"/>
+                </svg>
+            </button>
+            <div class="tap-hint">
+                Натапано для аппетита: <span class="tap-counter" id="tap-count">0</span> шт.
+            </div>
+        </div>
+
+        <!-- Основной таймер -->
+        <div class="card">
+            <div class="days-hero">
+                <div class="days-number" id="days">--</div>
+                <div class="days-label" id="days-label">дней осталось</div>
+            </div>
+
+            <div class="time-grid">
+                <div class="time-box">
+                    <div class="time-val" id="hours">00</div>
+                    <div class="time-unit" id="hours-label">часов</div>
+                </div>
+                <div class="time-box">
+                    <div class="time-val" id="minutes">00</div>
+                    <div class="time-unit" id="minutes-label">минут</div>
+                </div>
+                <div class="time-box">
+                    <div class="time-val" id="seconds">00</div>
+                    <div class="time-unit" id="seconds-label">секунд</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Прогресс-бар ожидания -->
+        <div class="card">
+            <div class="progress-header">
+                <span class="progress-title">Путь к кастрюле</span>
+                <span class="progress-percent" id="progress-percent">0.0000%</span>
+            </div>
+            <div class="progress-track">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+            <div class="dmb-status-msg" id="dmb-status">
+                Загружаем данные со спутника кухни...
+            </div>
+        </div>
+
+        <!-- План операции -->
+        <div class="card">
+            <div class="section-title">
+                <span>📋</span> Боевой чеклист до 13 декабря
+            </div>
+            <div class="checklist" id="checklist"></div>
+        </div>
+
+        <div class="footer">
+            Сделано с любовью к Лере и её пельменям 🥟<br>
+            <button class="test-btn" id="test-party-btn">Проверить режим 13 декабря 🎉</button>
+        </div>
+    </div>
+
+    <script>
+        // === НАСТРОЙКИ ДАТ ===
+        // В JavaScript месяцы считаются с нуля: 10 = ноябрь, 11 = декабрь.
+        // Если хочешь точное время приезда (например, 14:30), поменяй (2026, 11, 13, 0, 0, 0) на (2026, 11, 13, 14, 30, 0)
+        const START_DATE = new Date(2026, 10, 20, 0, 0, 0).getTime();
+        const TARGET_DATE = new Date(2026, 11, 13, 0, 0, 0).getTime();
+
+        let forcePartyMode = false;
+        let confettiStarted = false;
+
+        // Склонение слов (1 день, 2 дня, 5 дней)
+        function declOfNum(number, titles) {
+            const cases = [2, 0, 1, 1, 1, 2];
+            return titles[(number % 100 > 4 && number % 100 < 20) ? 2 : cases[(number % 10 < 5) ? number % 10 : 5]];
+        }
+
+        // Обновление таймера
+        function updateTimer() {
+            const now = Date.now();
+            let diff = TARGET_DATE - now;
+
+            if (forcePartyMode || diff <= 0) {
+                diff = 0;
+                document.getElementById('days').textContent = '0';
+                document.getElementById('days-label').textContent = 'ДЕНЬ X НАСТАЛ!';
+                document.getElementById('hours').textContent = '00';
+                document.getElementById('minutes').textContent = '00';
+                document.getElementById('seconds').textContent = '00';
+                document.getElementById('progress-percent').textContent = '100.0000%';
+                document.getElementById('progress-fill').style.width = '100%';
+
+                document.getElementById('badge-text').textContent = 'ПЕЛЬМЕННЫЙ ДЕМБЕЛЬ!';
+                document.getElementById('main-title').textContent = 'ЛЕРА И ПЕЛЬМЕНИ ТУТ!';
+                document.getElementById('dmb-status').innerHTML = '🚨 <b>ТРЕВОГА!</b> Срочно ставим самую большую кастрюлю, кидаем лаврушку и достаём сметану!';
+
+                if (!confettiStarted) {
+                    confettiStarted = true;
+                    startConfetti();
+                }
+                return;
+            }
+
+            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            const m = Math.floor((diff / 1000 / 60) % 60);
+            const s = Math.floor((diff / 1000) % 60);
+
+            document.getElementById('days').textContent = d;
+            document.getElementById('days-label').textContent = declOfNum(d, ['день остался', 'дня осталось', 'дней осталось']);
+
+            document.getElementById('hours').textContent = String(h).padStart(2, '0');
+            document.getElementById('hours-label').textContent = declOfNum(h, ['час', 'часа', 'часов']);
+
+            document.getElementById('minutes').textContent = String(m).padStart(2, '0');
+            document.getElementById('minutes-label').textContent = declOfNum(m, ['минута', 'минуты', 'минут']);
+
+            document.getElementById('seconds').textContent = String(s).padStart(2, '0');
+            document.getElementById('seconds-label').textContent = declOfNum(s, ['секунда', 'секунды', 'секунд']);
+
+            // Прогресс-бар
+            const totalDuration = TARGET_DATE - START_DATE;
+            const passed = Math.max(0, now - START_DATE);
+            const pct = Math.min(100, (passed / totalDuration) * 100);
+
+            document.getElementById('progress-percent').textContent = pct.toFixed(4) + '%';
+            document.getElementById('progress-fill').style.width = pct + '%';
+
+            // Сводка дня
+            const statusEl = document.getElementById('dmb-status');
+            if (d >= 18) {
+                statusEl.textContent = '🫡 Статус: Крепимся, нагуливаем зверский аппетит. До лепки ещё далеко, но мы выстоим.';
+            } else if (d >= 10) {
+                statusEl.textContent = '🥟 Статус: Экватор близок. В мыслях уже слышно, как закипает вода.';
+            } else if (d >= 4) {
+                statusEl.textContent = '🔥 Статус: Выход на финишную прямую! Пора присматривать в магазине самую жирную сметану.';
+            } else if (d >= 1) {
+                statusEl.textContent = '⚡ Статус: СЧИТАННЫЕ ЧАСЫ! Освободи место в животе и проверь, чистая ли кастрюля!';
+            } else {
+                statusEl.textContent = '🛸 Статус: СЕГОДНЯ! Готовь вилку, встречай Леру!';
+            }
+        }
+
+        setInterval(updateTimer, 100);
+        updateTimer();
+
+        // === КЛИКЕР ПЕЛЬМЕНЕЙ ===
+        const phrases = ['+1 пельмень 🥟', 'Вкуснятина!', 'Сметанки бы...', 'За Леру! ❤️', 'Сочный!', 'Ещё один в пузо!'];
+        let tapCount = 0;
+        try {
+            tapCount = parseInt(localStorage.getItem('pelmen_taps') || '0', 10);
+        } catch(e) {}
+        document.getElementById('tap-count').textContent = tapCount;
+
+        document.getElementById('pelmen-btn').addEventListener('click', (e) => {
+            tapCount++;
+            document.getElementById('tap-count').textContent = tapCount;
+            try { localStorage.setItem('pelmen_taps', tapCount); } catch(err) {}
+
+            // Всплывающий текст
+            const pop = document.createElement('div');
+            pop.className = 'pop-text';
+            pop.textContent = phrases[Math.floor(Math.random() * phrases.length)];
+            const x = e.clientX || (window.innerWidth / 2);
+            const y = e.clientY || 220;
+            pop.style.left = (x + (Math.random() * 40 - 20)) + 'px';
+            pop.style.top = (y - 20) + 'px';
+            document.body.appendChild(pop);
+            setTimeout(() => pop.remove(), 900);
+        });
+
+        // === ЧЕКЛИСТ ===
+        const tasks = [
+            { id: 't1', text: 'Найти самую большую кастрюлю' },
+            { id: 't2', text: 'Купить жирную сметану и укроп' },
+            { id: 't3', text: 'Проверить запасы сливочного масла' },
+            { id: 't4', text: 'Не объедаться 12 декабря вечером' },
+            { id: 't5', text: 'Крепко обнять Леру и съесть всё до крошки' }
+        ];
+
+        let savedChecks = {};
+        try {
+            savedChecks = JSON.parse(localStorage.getItem('pelmen_checks') || '{}');
+        } catch(e) {}
+
+        const checklistEl = document.getElementById('checklist');
+        tasks.forEach(task => {
+            const item = document.createElement('div');
+            item.className = 'check-item' + (savedChecks[task.id] ? ' done' : '');
+            item.innerHTML = `<div class="check-box">${savedChecks[task.id] ? '✓' : ''}</div><div class="check-text">${task.text}</div>`;
+            item.addEventListener('click', () => {
+                savedChecks[task.id] = !savedChecks[task.id];
+                item.classList.toggle('done', savedChecks[task.id]);
+                item.querySelector('.check-box').textContent = savedChecks[task.id] ? '✓' : '';
+                try { localStorage.setItem('pelmen_checks', JSON.stringify(savedChecks)); } catch(err) {}
+            });
+            checklistEl.appendChild(item);
+        });
+
+        // === ФОНОВЫЕ ПЕЛЬМЕШКИ ===
+        const bgSteam = document.getElementById('bg-steam');
+        for (let i = 0; i < 12; i++) {
+            const el = document.createElement('div');
+            el.className = 'floating-dumpling';
+            el.textContent = '🥟';
+            el.style.left = (Math.random() * 95) + 'vw';
+            el.style.animationDuration = (12 + Math.random() * 14) + 's';
+            el.style.animationDelay = (-Math.random() * 20) + 's';
+            el.style.fontSize = (18 + Math.random() * 16) + 'px';
+            bgSteam.appendChild(el);
+        }
+
+        // === ТЕСТ ПРАЗДНИКА ===
+        document.getElementById('test-party-btn').addEventListener('click', (e) => {
+            forcePartyMode = !forcePartyMode;
+            if (forcePartyMode) {
+                e.target.textContent = 'Вернуть обычный таймер ⏳';
+                updateTimer();
+            } else {
+                confettiStarted = false;
+                e.target.textContent = 'Проверить режим 13 декабря 🎉';
+                document.getElementById('badge-text').textContent = 'ОПЕРАЦИЯ «ПЕЛЬМЕНИ ЛЕРЫ»';
+                document.getElementById('main-title').textContent = 'До пельменей Леры';
+                updateTimer();
+            }
+        });
+
+        // === КОНФЕТТИ ===
+        function startConfetti() {
+            const canvas = document.getElementById('confetti');
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            const colors = ['#f6c472', '#ffe1a8', '#e89b3c', '#6ee7b7', '#ffffff'];
+            const pieces = Array.from({ length: 90 }, () => ({
+                x: Math.random() * canvas.width,
+                y: Math.random() * -canvas.height,
+                w: 6 + Math.random() * 6,
+                h: 6 + Math.random() * 8,
+                color: colors[Math.floor(Math.random() * colors.length)],
+                vy: 2 + Math.random() * 3.5,
+                vx: Math.random() * 2 - 1,
+                rot: Math.random() * 360,
+                vRot: Math.random() * 6 - 3
+            }));
+
+            function draw() {
+                if (!confettiStarted) {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    return;
+                }
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                pieces.forEach(p => {
+                    p.y += p.vy;
+                    p.x += p.vx;
+                    p.rot += p.vRot;
+                    if (p.y > canvas.height) {
+                        p.y = -20;
+                        p.x = Math.random() * canvas.width;
+                    }
+                    ctx.save();
+                    ctx.translate(p.x, p.y);
+                    ctx.rotate(p.rot * Math.PI / 180);
+                    ctx.fillStyle = p.color;
+                    ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+                    ctx.restore();
+                });
+                requestAnimationFrame(draw);
+            }
+            draw();
+        }
+    </script>
+</body>
+</html>
