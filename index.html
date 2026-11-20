@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>До пельменей Леры</title>
+    <title>До пельменей от Леры ❤️</title>
 
     <!-- Настройки чтобы открывалось как приложение на телефоне -->
-    <meta name="theme-color" content="#14110f">
+    <meta name="theme-color" content="#161112">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Пельмени Леры">
 
-    <!-- Иконка пельмешка (SVG прямо внутри кода) -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%231c1613'/%3E%3Cpath d='M18 62 C18 35, 82 35, 82 62 C82 76, 65 80, 50 80 C35 80, 18 76, 18 62 Z' fill='%23f5d08a' stroke='%23d49b4b' stroke-width='4'/%3E%3Cpath d='M22 52 Q30 42 40 48 Q50 38 60 48 Q70 42 78 52' fill='none' stroke='%23d49b4b' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
-    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%231c1613'/%3E%3Cpath d='M18 62 C18 35, 82 35, 82 62 C82 76, 65 80, 50 80 C35 80, 18 76, 18 62 Z' fill='%23f5d08a' stroke='%23d49b4b' stroke-width='4'/%3E%3Cpath d='M22 52 Q30 42 40 48 Q50 38 60 48 Q70 42 78 52' fill='none' stroke='%23d49b4b' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+    <!-- Иконка пельмешка-подушечки с сердечком -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%231c1416'/%3E%3Cpath d='M25 38 Q50 34 75 38 Q83 40 84 48 Q87 63 84 78 Q83 86 75 87 Q50 91 25 87 Q17 86 16 78 Q13 63 16 48 Q17 40 25 38 Z' fill='%23e8be70' stroke='%23c78832' stroke-width='3'/%3E%3Cpath d='M30 46 Q50 43 70 46 Q74 63 70 80 Q50 83 30 80 Q26 63 30 46 Z' fill='%23fff1cf'/%3E%3Cpath d='M50 22 C46 15, 38 17, 38 22 C38 27, 50 33, 50 33 C50 33, 62 27, 62 22 C62 17, 54 15, 50 22 Z' fill='%23ff6b81'/%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%231c1416'/%3E%3Cpath d='M25 38 Q50 34 75 38 Q83 40 84 48 Q87 63 84 78 Q83 86 75 87 Q50 91 25 87 Q17 86 16 78 Q13 63 16 48 Q17 40 25 38 Z' fill='%23e8be70' stroke='%23c78832' stroke-width='3'/%3E%3Cpath d='M30 46 Q50 43 70 46 Q74 63 70 80 Q50 83 30 80 Q26 63 30 46 Z' fill='%23fff1cf'/%3E%3Cpath d='M50 22 C46 15, 38 17, 38 22 C38 27, 50 33, 50 33 C50 33, 62 27, 62 22 C62 17, 54 15, 50 22 Z' fill='%23ff6b81'/%3E%3C/svg%3E">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,15 +22,15 @@
 
     <style>
         :root {
-            --bg-dark: #14110f;
-            --card-bg: rgba(32, 27, 24, 0.78);
-            --card-border: rgba(246, 196, 114, 0.16);
+            --bg-dark: #161112;
+            --card-bg: rgba(36, 26, 28, 0.78);
+            --card-border: rgba(255, 138, 155, 0.18);
             --gold: #f6c472;
-            --gold-bright: #ffe1a8;
-            --butter: #e89b3c;
-            --text-main: #f7f1e8;
-            --text-muted: #a8998a;
-            --green: #6ee7b7;
+            --gold-bright: #ffe5b8;
+            --rose: #ff7b8f;
+            --rose-soft: #ffb3be;
+            --text-main: #fcf5f2;
+            --text-muted: #b8a3a6;
         }
 
         * {
@@ -44,19 +44,18 @@
             font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background-color: var(--bg-dark);
             background-image:
-                radial-gradient(circle at 15% 15%, rgba(232, 155, 60, 0.14) 0%, transparent 45%),
-                radial-gradient(circle at 85% 80%, rgba(246, 196, 114, 0.1) 0%, transparent 50%);
+                radial-gradient(circle at 18% 12%, rgba(255, 123, 143, 0.16) 0%, transparent 45%),
+                radial-gradient(circle at 85% 78%, rgba(246, 196, 114, 0.12) 0%, transparent 50%);
             color: var(--text-main);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 20px 16px 40px;
+            padding: 20px 16px 36px;
             overflow-x: hidden;
             position: relative;
         }
 
-        /* Плавающий фон */
         .bg-steam {
             position: fixed;
             inset: 0;
@@ -65,53 +64,51 @@
             z-index: 0;
         }
 
-        .floating-dumpling {
+        .floating-item {
             position: absolute;
-            font-size: 24px;
-            opacity: 0.08;
+            opacity: 0.09;
             animation: floatUp linear infinite;
             user-select: none;
         }
 
         @keyframes floatUp {
             0% { transform: translateY(105vh) rotate(0deg); opacity: 0; }
-            15% { opacity: 0.08; }
-            85% { opacity: 0.08; }
+            15% { opacity: 0.09; }
+            85% { opacity: 0.09; }
             100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
         }
 
         .container {
             width: 100%;
-            max-width: 460px;
+            max-width: 440px;
             z-index: 2;
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 14px;
         }
 
-        /* Бейдж статуса */
         .status-badge {
             align-self: center;
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(246, 196, 114, 0.1);
-            border: 1px solid rgba(246, 196, 114, 0.25);
-            padding: 7px 14px;
+            background: rgba(255, 123, 143, 0.12);
+            border: 1px solid rgba(255, 123, 143, 0.3);
+            padding: 6px 14px;
             border-radius: 999px;
             font-size: 11px;
             font-weight: 700;
-            letter-spacing: 1.2px;
+            letter-spacing: 1.4px;
             text-transform: uppercase;
-            color: var(--gold);
+            color: var(--rose-soft);
         }
 
         .pulse-dot {
             width: 8px;
             height: 8px;
             border-radius: 50%;
-            background: var(--green);
-            box-shadow: 0 0 10px var(--green);
+            background: var(--rose);
+            box-shadow: 0 0 10px var(--rose);
             animation: pulse 1.6s infinite;
         }
 
@@ -120,35 +117,32 @@
             50% { opacity: 0.4; transform: scale(0.8); }
         }
 
-        /* Заголовок */
         .header {
             text-align: center;
         }
 
         .header h1 {
-            font-size: clamp(24px, 6.5vw, 32px);
+            font-size: clamp(23px, 6.2vw, 29px);
             font-weight: 900;
-            line-height: 1.15;
-            background: linear-gradient(135deg, #fff6e5 0%, var(--gold) 100%);
+            line-height: 1.2;
+            background: linear-gradient(135deg, #fff5f6 0%, var(--gold-bright) 55%, var(--rose-soft) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }
 
         .header p {
             color: var(--text-muted);
-            font-size: 13px;
+            font-size: 13.5px;
             font-weight: 600;
         }
 
-        /* Интерактивный пельмень */
         .pelmen-stage {
             position: relative;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            margin: 4px 0;
         }
 
         .pelmen-btn {
@@ -156,7 +150,7 @@
             border: none;
             cursor: pointer;
             position: relative;
-            padding: 10px;
+            padding: 4px;
             transition: transform 0.12s cubic-bezier(0.34, 1.56, 0.64, 1);
             user-select: none;
         }
@@ -167,20 +161,20 @@
 
         .pelmen-glow {
             position: absolute;
-            width: 140px;
-            height: 90px;
-            background: radial-gradient(circle, rgba(246, 196, 114, 0.28) 0%, transparent 70%);
-            top: 50%;
+            width: 145px;
+            height: 115px;
+            background: radial-gradient(circle, rgba(255, 123, 143, 0.25) 0%, rgba(246, 196, 114, 0.16) 45%, transparent 75%);
+            top: 52%;
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: -1;
-            filter: blur(10px);
+            filter: blur(12px);
         }
 
         .pelmen-svg {
-            width: 148px;
-            height: 112px;
-            filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.5));
+            width: 150px;
+            height: 130px;
+            filter: drop-shadow(0 12px 22px rgba(0, 0, 0, 0.5));
             animation: gentleBob 3.5s ease-in-out infinite;
         }
 
@@ -198,56 +192,54 @@
 
         @keyframes steamRise {
             0% { transform: translateY(6px); opacity: 0; }
-            40% { opacity: 0.7; }
+            40% { opacity: 0.75; }
             100% { transform: translateY(-14px); opacity: 0; }
         }
 
         .tap-hint {
-            font-size: 12px;
+            font-size: 12.5px;
             color: var(--text-muted);
-            margin-top: -4px;
+            margin-top: 2px;
         }
 
         .tap-counter {
-            color: var(--gold);
-            font-weight: 700;
+            color: var(--rose-soft);
+            font-weight: 800;
         }
 
-        /* Карточки */
         .card {
             background: var(--card-bg);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border: 1px solid var(--card-border);
             border-radius: 24px;
-            padding: 20px;
+            padding: 18px;
             box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
         }
 
-        /* Главный таймер */
         .days-hero {
             text-align: center;
-            padding-bottom: 16px;
+            padding-bottom: 14px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-            margin-bottom: 16px;
+            margin-bottom: 14px;
         }
 
         .days-number {
             font-family: 'JetBrains Mono', monospace;
-            font-size: clamp(56px, 16vw, 76px);
+            font-size: clamp(56px, 16vw, 74px);
             font-weight: 800;
             line-height: 1;
             color: var(--gold-bright);
-            text-shadow: 0 0 30px rgba(246, 196, 114, 0.3);
+            text-shadow: 0 0 32px rgba(255, 123, 143, 0.25);
         }
 
         .days-label {
-            font-size: 13px;
+            font-size: 12.5px;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--gold);
-            margin-top: 6px;
+            letter-spacing: 1.4px;
+            color: var(--rose-soft);
+            margin-top: 8px;
         }
 
         .time-grid {
@@ -260,13 +252,13 @@
         .time-box {
             background: rgba(0, 0, 0, 0.28);
             border-radius: 16px;
-            padding: 12px 6px;
+            padding: 11px 6px;
             border: 1px solid rgba(255, 255, 255, 0.04);
         }
 
         .time-val {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 26px;
+            font-size: 25px;
             font-weight: 800;
             color: var(--text-main);
             font-variant-numeric: tabular-nums;
@@ -280,7 +272,6 @@
             text-transform: uppercase;
         }
 
-        /* ДМБ Прогресс-бар */
         .progress-header {
             display: flex;
             justify-content: space-between;
@@ -298,12 +289,12 @@
             font-family: 'JetBrains Mono', monospace;
             font-size: 14px;
             font-weight: 800;
-            color: var(--gold);
+            color: var(--rose-soft);
             font-variant-numeric: tabular-nums;
         }
 
         .progress-track {
-            height: 14px;
+            height: 12px;
             background: rgba(0, 0, 0, 0.45);
             border-radius: 999px;
             overflow: hidden;
@@ -315,31 +306,48 @@
             height: 100%;
             width: 0%;
             border-radius: 999px;
-            background: linear-gradient(90deg, var(--butter), var(--gold-bright));
-            box-shadow: 0 0 12px rgba(246, 196, 114, 0.5);
+            background: linear-gradient(90deg, var(--rose), var(--gold));
+            box-shadow: 0 0 12px rgba(255, 123, 143, 0.45);
             transition: width 0.3s ease;
-            position: relative;
         }
 
-        .dmb-status-msg {
+        .love-status-msg {
             margin-top: 12px;
             font-size: 13px;
             line-height: 1.45;
-            color: var(--text-muted);
-            background: rgba(246, 196, 114, 0.06);
+            color: var(--text-main);
+            background: rgba(255, 123, 143, 0.08);
             padding: 10px 12px;
             border-radius: 12px;
-            border-left: 3px solid var(--gold);
+            border-left: 3px solid var(--rose);
         }
 
-        /* Чеклист */
+        .love-note {
+            background: linear-gradient(145deg, rgba(255, 123, 143, 0.14), rgba(36, 26, 28, 0.85));
+            border: 1px solid rgba(255, 123, 143, 0.28);
+        }
+
+        .love-note-text {
+            font-size: 13.5px;
+            line-height: 1.55;
+            color: #f9ebed;
+        }
+
+        .love-signature {
+            margin-top: 8px;
+            text-align: right;
+            font-size: 13px;
+            font-weight: 800;
+            color: var(--rose-soft);
+        }
+
         .section-title {
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--gold);
-            margin-bottom: 12px;
+            letter-spacing: 0.8px;
+            color: var(--gold-bright);
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -348,7 +356,7 @@
         .checklist {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 7px;
         }
 
         .check-item {
@@ -359,7 +367,7 @@
             background: rgba(0, 0, 0, 0.22);
             border-radius: 14px;
             cursor: pointer;
-            transition: background 0.2s, opacity 0.2s;
+            transition: background 0.2s, opacity 0.2s, transform 0.1s;
             user-select: none;
         }
 
@@ -368,22 +376,22 @@
         }
 
         .check-box {
-            width: 22px;
-            height: 22px;
+            width: 21px;
+            height: 21px;
             border-radius: 7px;
-            border: 2px solid var(--gold);
+            border: 2px solid var(--rose-soft);
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
             transition: all 0.2s;
-            font-size: 13px;
-            color: #14110f;
+            font-size: 12px;
+            color: #161112;
             font-weight: 900;
         }
 
         .check-item.done .check-box {
-            background: var(--gold);
+            background: var(--rose-soft);
         }
 
         .check-item.done .check-text {
@@ -397,44 +405,31 @@
             font-weight: 600;
         }
 
-        /* Футер и тест праздника */
         .footer {
             text-align: center;
-            font-size: 11px;
-            color: rgba(168, 153, 138, 0.6);
-            margin-top: 6px;
+            font-size: 12px;
+            color: rgba(184, 163, 166, 0.75);
+            margin-top: 2px;
+            font-weight: 600;
         }
 
-        .test-btn {
-            background: none;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(168, 153, 138, 0.7);
-            padding: 6px 12px;
-            border-radius: 999px;
-            font-size: 11px;
-            margin-top: 10px;
-            cursor: pointer;
-            font-family: inherit;
-        }
-
-        /* Всплывающий текст при тапе */
         .pop-text {
             position: fixed;
             font-weight: 800;
             font-size: 15px;
-            color: var(--gold-bright);
+            color: var(--rose-soft);
             pointer-events: none;
             z-index: 100;
-            animation: popFloat 0.9s ease-out forwards;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+            animation: popFloat 0.95s ease-out forwards;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.85);
+            white-space: nowrap;
         }
 
         @keyframes popFloat {
             0% { transform: translate(-50%, 0) scale(0.8); opacity: 1; }
-            100% { transform: translate(-50%, -65px) scale(1.15); opacity: 0; }
+            100% { transform: translate(-50%, -70px) scale(1.12); opacity: 0; }
         }
 
-        /* Канвас для конфетти */
         #confetti {
             position: fixed;
             inset: 0;
@@ -449,47 +444,83 @@
 
     <div class="container">
         <div class="status-badge">
-            <span class="pulse-dot" id="status-dot"></span>
-            <span id="badge-text">ОПЕРАЦИЯ «ПЕЛЬМЕНИ ЛЕРЫ»</span>
+            <span class="pulse-dot"></span>
+            <span id="badge-text">13 ДЕКАБРЯ</span>
         </div>
 
         <div class="header">
-            <h1 id="main-title">До пельменей Леры</h1>
-            <p id="sub-title">Дата ДМБ (День Мяса и Бульона): 13 декабря</p>
+            <h1 id="main-title">Дней до пельменей от Леры</h1>
+            <p id="sub-title">Жду тебя, родная ❤️</p>
         </div>
 
-        <!-- Кликер-пельмешек -->
+        <!-- Интерактивный пельмень-подушечка -->
         <div class="pelmen-stage">
-            <button class="pelmen-btn" id="pelmen-btn" aria-label="Тыкнуть пельмень">
+            <button class="pelmen-btn" id="pelmen-btn" aria-label="Отправить сердечко и пельмешек Лере">
                 <div class="pelmen-glow"></div>
-                <svg class="pelmen-svg" viewBox="0 0 160 120" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Пар -->
-                    <path class="steam-line" d="M55 28 Q50 18 56 10" stroke="#ffe1a8" stroke-width="3" fill="none" stroke-linecap="round"/>
-                    <path class="steam-line" d="M80 24 Q86 14 79 5" stroke="#ffe1a8" stroke-width="3" fill="none" stroke-linecap="round"/>
-                    <path class="steam-line" d="M105 28 Q100 18 106 10" stroke="#ffe1a8" stroke-width="3" fill="none" stroke-linecap="round"/>
-                    <!-- Тело пельменя -->
+                <svg class="pelmen-svg" viewBox="0 0 160 138" xmlns="http://www.w3.org/2000/svg">
                     <defs>
-                        <linearGradient id="dough" x1="0%" y1="0%" x2="0%" y2="100%">
-                            <stop offset="0%" stop-color="#fff1cf"/>
-                            <stop offset="60%" stop-color="#f2c97d"/>
-                            <stop offset="100%" stop-color="#d49a45"/>
+                        <radialGradient id="pillowDough" cx="38%" cy="32%" r="70%">
+                            <stop offset="0%" stop-color="#fff7e2"/>
+                            <stop offset="55%" stop-color="#f3cb80"/>
+                            <stop offset="100%" stop-color="#d49944"/>
+                        </radialGradient>
+                        <linearGradient id="rimDough" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#f5d18c"/>
+                            <stop offset="100%" stop-color="#cf933e"/>
                         </linearGradient>
                     </defs>
-                    <path d="M20 75 C20 35, 140 35, 140 75 C140 97, 112 103, 80 103 C48 103, 20 97, 20 75 Z" fill="url(#dough)" stroke="#c78832" stroke-width="3"/>
-                    <!-- Защипы теста -->
-                    <path d="M26 62 Q38 45 50 56 Q62 40 74 53 Q86 40 98 53 Q110 40 122 56 Q130 50 134 62" fill="none" stroke="#c78832" stroke-width="3.2" stroke-linecap="round"/>
-                    <!-- Милая мордочка -->
-                    <circle cx="63" cy="76" r="4" fill="#4a3118"/>
-                    <circle cx="97" cy="76" r="4" fill="#4a3118"/>
-                    <circle cx="64.5" cy="74.5" r="1.3" fill="#ffffff"/>
-                    <circle cx="98.5" cy="74.5" r="1.3" fill="#ffffff"/>
-                    <ellipse cx="53" cy="82" rx="5" ry="3" fill="#f08080" opacity="0.55"/>
-                    <ellipse cx="107" cy="82" rx="5" ry="3" fill="#f08080" opacity="0.55"/>
-                    <path d="M74 81 Q80 87 86 81" fill="none" stroke="#4a3118" stroke-width="2.8" stroke-linecap="round"/>
+
+                    <!-- Пар и сердечко -->
+                    <path class="steam-line" d="M52 26 Q47 16 53 8" stroke="#ffe1a8" stroke-width="3" fill="none" stroke-linecap="round"/>
+                    <path class="steam-line" d="M108 26 Q103 16 109 8" stroke="#ffe1a8" stroke-width="3" fill="none" stroke-linecap="round"/>
+                    <path class="steam-line" d="M80 17 C75 9, 66 11, 66 17 C66 23, 80 30, 80 30 C80 30, 94 23, 94 17 C94 11, 85 9, 80 17 Z" fill="#ff7b8f"/>
+
+                    <!-- Плоский край подушечки -->
+                    <path d="M42 40 Q80 35 118 40 Q130 42 132 54 Q137 84 132 114 Q130 126 118 128 Q80 133 42 128 Q30 126 28 114 Q23 84 28 54 Q30 42 42 40 Z"
+                          fill="url(#rimDough)" stroke="#b87b28" stroke-width="3"/>
+
+                    <!-- Рифление по краю подушечки -->
+                    <g stroke="#a86d20" stroke-width="2.2" stroke-linecap="round" opacity="0.65">
+                        <!-- верх -->
+                        <line x1="50" y1="41" x2="51" y2="48"/>
+                        <line x1="65" y1="39" x2="65" y2="46"/>
+                        <line x1="80" y1="38" x2="80" y2="46"/>
+                        <line x1="95" y1="39" x2="95" y2="46"/>
+                        <line x1="110" y1="41" x2="109" y2="48"/>
+                        <!-- низ -->
+                        <line x1="50" y1="120" x2="51" y2="127"/>
+                        <line x1="65" y1="122" x2="65" y2="129"/>
+                        <line x1="80" y1="122" x2="80" y2="130"/>
+                        <line x1="95" y1="122" x2="95" y2="129"/>
+                        <line x1="110" y1="120" x2="109" y2="127"/>
+                        <!-- лево -->
+                        <line x1="29" y1="60" x2="37" y2="61"/>
+                        <line x1="27" y1="76" x2="35" y2="76"/>
+                        <line x1="27" y1="92" x2="35" y2="92"/>
+                        <line x1="29" y1="108" x2="37" y2="107"/>
+                        <!-- право -->
+                        <line x1="123" y1="61" x2="131" y2="60"/>
+                        <line x1="125" y1="76" x2="133" y2="76"/>
+                        <line x1="125" y1="92" x2="133" y2="92"/>
+                        <line x1="123" y1="107" x2="131" y2="108"/>
+                    </g>
+
+                    <!-- Пухлая серединка подушечки -->
+                    <path d="M47 53 Q80 48 113 53 Q119 84 113 115 Q80 120 47 115 Q41 84 47 53 Z"
+                          fill="url(#pillowDough)" stroke="#c78832" stroke-width="2.2"/>
+
+                    <!-- Мордочка -->
+                    <circle cx="68" cy="81" r="4" fill="#4a3118"/>
+                    <circle cx="92" cy="81" r="4" fill="#4a3118"/>
+                    <circle cx="69.5" cy="79.5" r="1.3" fill="#ffffff"/>
+                    <circle cx="93.5" cy="79.5" r="1.3" fill="#ffffff"/>
+                    <ellipse cx="58" cy="87" rx="5.5" ry="3.2" fill="#ff7b8f" opacity="0.65"/>
+                    <ellipse cx="102" cy="87" rx="5.5" ry="3.2" fill="#ff7b8f" opacity="0.65"/>
+                    <path d="M74 87 Q80 93 86 87" fill="none" stroke="#4a3118" stroke-width="2.8" stroke-linecap="round"/>
                 </svg>
             </button>
             <div class="tap-hint">
-                Натапано для аппетита: <span class="tap-counter" id="tap-count">0</span> шт.
+                Любви для Леры: <span class="tap-counter" id="tap-count">0</span> ❤️
             </div>
         </div>
 
@@ -497,7 +528,7 @@
         <div class="card">
             <div class="days-hero">
                 <div class="days-number" id="days">--</div>
-                <div class="days-label" id="days-label">дней осталось</div>
+                <div class="days-label" id="days-label">дней до пельменей от Леры</div>
             </div>
 
             <div class="time-grid">
@@ -516,68 +547,76 @@
             </div>
         </div>
 
-        <!-- Прогресс-бар ожидания -->
+        <!-- Прогресс ожидания -->
         <div class="card">
             <div class="progress-header">
-                <span class="progress-title">Путь к кастрюле</span>
+                <span class="progress-title">Путь к встрече</span>
                 <span class="progress-percent" id="progress-percent">0.0000%</span>
             </div>
             <div class="progress-track">
                 <div class="progress-fill" id="progress-fill"></div>
             </div>
-            <div class="dmb-status-msg" id="dmb-status">
-                Загружаем данные со спутника кухни...
+            <div class="love-status-msg" id="love-status">
+                Считаю секунды до тебя...
             </div>
         </div>
 
-        <!-- План операции -->
+        <!-- Признание для Леры -->
+        <div class="card love-note">
+            <div class="section-title">
+                <span>💌</span> Для тебя ❤️
+            </div>
+            <div class="love-note-text">
+                Лера, я очень сильно тебя люблю. Жду 13 декабря — не только ради самых вкусных пельменей, а чтобы просто крепко обнять тебя и не отпускать.
+            </div>
+            <div class="love-signature">
+                Твой Данила ❤️
+            </div>
+        </div>
+
+        <!-- План на 13 декабря -->
         <div class="card">
             <div class="section-title">
-                <span>📋</span> Боевой чеклист до 13 декабря
+                <span>✨</span> План на 13 декабря
             </div>
             <div class="checklist" id="checklist"></div>
         </div>
 
         <div class="footer">
-            Сделано с любовью к Лере и её пельменям 🥟<br>
-            <button class="test-btn" id="test-party-btn">Проверить режим 13 декабря 🎉</button>
+            Даня ❤️ Лера
         </div>
     </div>
 
     <script>
         // === НАСТРОЙКИ ДАТ ===
-        // В JavaScript месяцы считаются с нуля: 10 = ноябрь, 11 = декабрь.
-        // Если хочешь точное время приезда (например, 14:30), поменяй (2026, 11, 13, 0, 0, 0) на (2026, 11, 13, 14, 30, 0)
+        // 10 = ноябрь, 11 = декабрь.
+        // Если Лера приедет в конкретное время (например, 15:30), замени последние 0, 0, 0 на 15, 30, 0
         const START_DATE = new Date(2026, 10, 20, 0, 0, 0).getTime();
         const TARGET_DATE = new Date(2026, 11, 13, 0, 0, 0).getTime();
 
-        let forcePartyMode = false;
         let confettiStarted = false;
 
-        // Склонение слов (1 день, 2 дня, 5 дней)
         function declOfNum(number, titles) {
             const cases = [2, 0, 1, 1, 1, 2];
             return titles[(number % 100 > 4 && number % 100 < 20) ? 2 : cases[(number % 10 < 5) ? number % 10 : 5]];
         }
 
-        // Обновление таймера
         function updateTimer() {
             const now = Date.now();
             let diff = TARGET_DATE - now;
 
-            if (forcePartyMode || diff <= 0) {
-                diff = 0;
+            if (diff <= 0) {
                 document.getElementById('days').textContent = '0';
-                document.getElementById('days-label').textContent = 'ДЕНЬ X НАСТАЛ!';
+                document.getElementById('days-label').textContent = 'ЭТОТ ДЕНЬ НАСТАЛ!';
                 document.getElementById('hours').textContent = '00';
                 document.getElementById('minutes').textContent = '00';
                 document.getElementById('seconds').textContent = '00';
                 document.getElementById('progress-percent').textContent = '100.0000%';
                 document.getElementById('progress-fill').style.width = '100%';
 
-                document.getElementById('badge-text').textContent = 'ПЕЛЬМЕННЫЙ ДЕМБЕЛЬ!';
+                document.getElementById('badge-text').textContent = 'ЛЕРА РЯДОМ ❤️';
                 document.getElementById('main-title').textContent = 'ЛЕРА И ПЕЛЬМЕНИ ТУТ!';
-                document.getElementById('dmb-status').innerHTML = '🚨 <b>ТРЕВОГА!</b> Срочно ставим самую большую кастрюлю, кидаем лаврушку и достаём сметану!';
+                document.getElementById('love-status').innerHTML = '🥳 Ты здесь! Люблю тебя бесконечно ❤️🍲';
 
                 if (!confettiStarted) {
                     confettiStarted = true;
@@ -592,7 +631,15 @@
             const s = Math.floor((diff / 1000) % 60);
 
             document.getElementById('days').textContent = d;
-            document.getElementById('days-label').textContent = declOfNum(d, ['день остался', 'дня осталось', 'дней осталось']);
+            if (d === 0) {
+                document.getElementById('days-label').textContent = 'меньше суток до встречи!';
+            } else {
+                document.getElementById('days-label').textContent = declOfNum(d, [
+                    'день до пельменей от Леры',
+                    'дня до пельменей от Леры',
+                    'дней до пельменей от Леры'
+                ]);
+            }
 
             document.getElementById('hours').textContent = String(h).padStart(2, '0');
             document.getElementById('hours-label').textContent = declOfNum(h, ['час', 'часа', 'часов']);
@@ -603,7 +650,6 @@
             document.getElementById('seconds').textContent = String(s).padStart(2, '0');
             document.getElementById('seconds-label').textContent = declOfNum(s, ['секунда', 'секунды', 'секунд']);
 
-            // Прогресс-бар
             const totalDuration = TARGET_DATE - START_DATE;
             const passed = Math.max(0, now - START_DATE);
             const pct = Math.min(100, (passed / totalDuration) * 100);
@@ -611,61 +657,102 @@
             document.getElementById('progress-percent').textContent = pct.toFixed(4) + '%';
             document.getElementById('progress-fill').style.width = pct + '%';
 
-            // Сводка дня
-            const statusEl = document.getElementById('dmb-status');
+            const statusEl = document.getElementById('love-status');
             if (d >= 18) {
-                statusEl.textContent = '🫡 Статус: Крепимся, нагуливаем зверский аппетит. До лепки ещё далеко, но мы выстоим.';
+                statusEl.textContent = '🥺 Считаю дни до тебя и очень скучаю ❤️';
             } else if (d >= 10) {
-                statusEl.textContent = '🥟 Статус: Экватор близок. В мыслях уже слышно, как закипает вода.';
+                statusEl.textContent = '💕 Всё ближе к твоим объятиям и пельменям 🍲';
             } else if (d >= 4) {
-                statusEl.textContent = '🔥 Статус: Выход на финишную прямую! Пора присматривать в магазине самую жирную сметану.';
+                statusEl.textContent = '✨ Осталось совсем чуть-чуть до нашей встречи!';
             } else if (d >= 1) {
-                statusEl.textContent = '⚡ Статус: СЧИТАННЫЕ ЧАСЫ! Освободи место в животе и проверь, чистая ли кастрюля!';
+                statusEl.textContent = '💓 Уже почти! Очень тебя люблю, Лера!';
             } else {
-                statusEl.textContent = '🛸 Статус: СЕГОДНЯ! Готовь вилку, встречай Леру!';
+                statusEl.textContent = '🎉 Считанные часы! Скоро обниму тебя ❤️';
             }
         }
 
         setInterval(updateTimer, 100);
         updateTimer();
 
-        // === КЛИКЕР ПЕЛЬМЕНЕЙ ===
-        const phrases = ['+1 пельмень 🥟', 'Вкуснятина!', 'Сметанки бы...', 'За Леру! ❤️', 'Сочный!', 'Ещё один в пузо!'];
+        // === МНОГО МИЛЫХ ФРАЗ ПРИ ТАПЕ ===
+        const phrases = [
+            'Люблю Леру ❤️',
+            'Самая лучшая! 💕',
+            'Скучаю безумно 🥺',
+            'Моя принцесса 👑',
+            'Хочу обнять 🫂',
+            'Ты моё счастье ✨',
+            'Лера — чудо 💫',
+            'Жду 13 декабря ❤️',
+            'С бульоном и перчиком 🍲',
+            'Моё солнышко ☀️',
+            'Целую в щёчку 😘',
+            'Самая красивая 🌸',
+            'Любимая девочка 💖',
+            'Даня любит Леру 💘',
+            'Скоро увидимся! 🥰',
+            'Нежная моя 🌷',
+            'Сладкая булочка 🥐',
+            'Лучше всех на свете 🌍',
+            'Обнимаю мысленно 🤍',
+            'Мой любимый повар 👩‍🍳',
+            'Только ты и я 💞',
+            'Улыбнись, малыш 😊',
+            'Сердечко твоё 💓',
+            'Самая родная ❤️',
+            'Волшебная Лера ✨',
+            'Таю от тебя 🫠',
+            'Греешь мне душу 🔥',
+            'Милее всех 🐾',
+            'Мечтаю о встрече 💭',
+            'Горячие пельмешки 🥟❤️',
+            'Твой Данила рядом 🫶',
+            'Ты — мой космос 🌌',
+            'Бесконечно люблю ♾️',
+            'Моя радость 🍓'
+        ];
+
+        let lastPhraseIdx = -1;
         let tapCount = 0;
         try {
-            tapCount = parseInt(localStorage.getItem('pelmen_taps') || '0', 10);
+            tapCount = parseInt(localStorage.getItem('danya_lera_taps') || '0', 10);
         } catch(e) {}
         document.getElementById('tap-count').textContent = tapCount;
 
         document.getElementById('pelmen-btn').addEventListener('click', (e) => {
             tapCount++;
             document.getElementById('tap-count').textContent = tapCount;
-            try { localStorage.setItem('pelmen_taps', tapCount); } catch(err) {}
+            try { localStorage.setItem('danya_lera_taps', tapCount); } catch(err) {}
 
-            // Всплывающий текст
+            let idx;
+            do {
+                idx = Math.floor(Math.random() * phrases.length);
+            } while (idx === lastPhraseIdx && phrases.length > 1);
+            lastPhraseIdx = idx;
+
             const pop = document.createElement('div');
             pop.className = 'pop-text';
-            pop.textContent = phrases[Math.floor(Math.random() * phrases.length)];
+            pop.textContent = phrases[idx];
             const x = e.clientX || (window.innerWidth / 2);
             const y = e.clientY || 220;
-            pop.style.left = (x + (Math.random() * 40 - 20)) + 'px';
+            pop.style.left = Math.min(window.innerWidth - 110, Math.max(110, x + (Math.random() * 50 - 25))) + 'px';
             pop.style.top = (y - 20) + 'px';
             document.body.appendChild(pop);
-            setTimeout(() => pop.remove(), 900);
+            setTimeout(() => pop.remove(), 950);
         });
 
         // === ЧЕКЛИСТ ===
         const tasks = [
-            { id: 't1', text: 'Найти самую большую кастрюлю' },
-            { id: 't2', text: 'Купить жирную сметану и укроп' },
-            { id: 't3', text: 'Проверить запасы сливочного масла' },
-            { id: 't4', text: 'Не объедаться 12 декабря вечером' },
-            { id: 't5', text: 'Крепко обнять Леру и съесть всё до крошки' }
+            { id: 'l1', text: 'Крепко обнять Леру' },
+            { id: 'l2', text: 'Расцеловать с порога' },
+            { id: 'l3_pepper', text: 'Подготовить бульон и молотый перец' },
+            { id: 'l4', text: 'Помочь на кухне (или не мешать 😄)' },
+            { id: 'l5', text: 'Съесть горячие пельмешки с любовью' }
         ];
 
         let savedChecks = {};
         try {
-            savedChecks = JSON.parse(localStorage.getItem('pelmen_checks') || '{}');
+            savedChecks = JSON.parse(localStorage.getItem('danya_lera_checks') || '{}');
         } catch(e) {}
 
         const checklistEl = document.getElementById('checklist');
@@ -677,47 +764,33 @@
                 savedChecks[task.id] = !savedChecks[task.id];
                 item.classList.toggle('done', savedChecks[task.id]);
                 item.querySelector('.check-box').textContent = savedChecks[task.id] ? '✓' : '';
-                try { localStorage.setItem('pelmen_checks', JSON.stringify(savedChecks)); } catch(err) {}
+                try { localStorage.setItem('danya_lera_checks', JSON.stringify(savedChecks)); } catch(err) {}
             });
             checklistEl.appendChild(item);
         });
 
-        // === ФОНОВЫЕ ПЕЛЬМЕШКИ ===
+        // === ФОНОВЫЕ СЕРДЕЧКИ И ПЕЛЬМЕШКИ ===
         const bgSteam = document.getElementById('bg-steam');
-        for (let i = 0; i < 12; i++) {
+        const bgIcons = ['🥟', '❤️', '🥟', '🤍', '🥟', '💕'];
+        for (let i = 0; i < 14; i++) {
             const el = document.createElement('div');
-            el.className = 'floating-dumpling';
-            el.textContent = '🥟';
-            el.style.left = (Math.random() * 95) + 'vw';
-            el.style.animationDuration = (12 + Math.random() * 14) + 's';
+            el.className = 'floating-item';
+            el.textContent = bgIcons[i % bgIcons.length];
+            el.style.left = (Math.random() * 94) + 'vw';
+            el.style.animationDuration = (13 + Math.random() * 14) + 's';
             el.style.animationDelay = (-Math.random() * 20) + 's';
-            el.style.fontSize = (18 + Math.random() * 16) + 'px';
+            el.style.fontSize = (16 + Math.random() * 14) + 'px';
             bgSteam.appendChild(el);
         }
 
-        // === ТЕСТ ПРАЗДНИКА ===
-        document.getElementById('test-party-btn').addEventListener('click', (e) => {
-            forcePartyMode = !forcePartyMode;
-            if (forcePartyMode) {
-                e.target.textContent = 'Вернуть обычный таймер ⏳';
-                updateTimer();
-            } else {
-                confettiStarted = false;
-                e.target.textContent = 'Проверить режим 13 декабря 🎉';
-                document.getElementById('badge-text').textContent = 'ОПЕРАЦИЯ «ПЕЛЬМЕНИ ЛЕРЫ»';
-                document.getElementById('main-title').textContent = 'До пельменей Леры';
-                updateTimer();
-            }
-        });
-
-        // === КОНФЕТТИ ===
+        // === КОНФЕТТИ НА 13 ДЕКАБРЯ ===
         function startConfetti() {
             const canvas = document.getElementById('confetti');
             const ctx = canvas.getContext('2d');
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
-            const colors = ['#f6c472', '#ffe1a8', '#e89b3c', '#6ee7b7', '#ffffff'];
-            const pieces = Array.from({ length: 90 }, () => ({
+            const colors = ['#ff7b8f', '#ffb3be', '#f6c472', '#ffe5b8', '#ffffff'];
+            const pieces = Array.from({ length: 95 }, () => ({
                 x: Math.random() * canvas.width,
                 y: Math.random() * -canvas.height,
                 w: 6 + Math.random() * 6,
@@ -730,10 +803,6 @@
             }));
 
             function draw() {
-                if (!confettiStarted) {
-                    ctx.clearRect(0, 0, canvas.width, canvas.height);
-                    return;
-                }
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
                 pieces.forEach(p => {
                     p.y += p.vy;
